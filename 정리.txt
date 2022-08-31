@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS `person`;
+
+CREATE TABLE IF NOT EXISTS `person`(
+	id INT AUTO_INCREMENT, // AUTO_INCREMENT,  => 1씩 증가
+	name VARCHAR(20),
+	age INT,
+	PRIMARY KEY(id) // 주 키
+);
+
+HTTP 메소드
+
+GET 메소드 - 데이터를 읽어오는 용도 (read-only)
+	    > insert나 update 하면 안됨 (select만)
