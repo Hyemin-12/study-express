@@ -27,6 +27,25 @@ const connection = mysql.createConnection({
     password: '1234'
 })
 
+app.post('/post', (req, res) => {
+    res.json({
+        title: "subject 3",
+        main: "content 3",
+        writer: "world",
+        pw: "0000"
+    })
+    res.send(req.body);
+})
+
+async function createPost(post) {
+    const result = await promisePool.query("INSERT INTO post (title, main, writer, pw, date) VALUES (?, ?, ?, ?, sysdate())", [post.title, post.main, post.writer, post.pw]);
+    console.log(result[0]);     
+}
+
+createPost(post);
+
+
+
 app.get('/persons', (req, res) => {
     connection.execute(
         "SELECT * FROM person",
